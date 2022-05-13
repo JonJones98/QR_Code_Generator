@@ -4,22 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .page_setup{
+            display: flex;
+            justify-content: space-evenly;
+            align-items:center;
+            flex-direction:column;
+            width: max-content;
+            background-color: lightblue;
+            border: black solid 2px;
+            padding: 10px;
+        }
+        .page_position{
+            display: flex;
+            justify-content: center;
+            margin-top: 5%;
+        }
+        .outline{
+            border: black solid;
+        }
+    </style>
     <title>QR Code Generator</title>
 </head>
 <body>
-    <form action="/qrcodevalidate" method="post">
-        <label for="url">URL: </label>
-        <input type="text" name="url">
-        <label for="filename">Filename: </label>
-        <input type="text" name="filename">
-        <label for="url">URL: </label>
-        <select name="formattype" id="formattype">
-            {% for format in formats%}
-                <option value={{format}}>{{format}}</option>
-            {%endfor%}
-        </select>
-       <button type="submit">Submit</button>
-    </form>
-
+    <div class="page_position">
+        <div class="page_setup">
+            <h1>
+                <u>QR CODE GENERATOR</u> 
+            </h1>
+            <form action="/qrcodevalidate" method="post" >
+                <label for="url">URL: </label>
+                <input type="text" name="url" class="outline">
+                <label for="filename">Filename: </label>
+                <input type="text" name="filename" class="outline">
+                <label for="formattype">Format: </label>
+                <select name="formattype" id="formattype" class="outline">
+                    {% for format in formats%}
+                        <option value={{format}}>{{format}}</option>
+                    {%endfor%}
+                </select>
+               <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>  
 </body>
 </html>
