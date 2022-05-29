@@ -1,5 +1,6 @@
 
 import shutil
+from turtle import delay
 import requests
 from threading import local
 from traceback import format_list
@@ -12,6 +13,7 @@ from pathlib import Path
 import os
 import base64
 import requests
+import time
 
 
 @app.route("/")
@@ -32,15 +34,20 @@ def validate():
     qr_name=str(session["filename"])
     qr_format=str(session["formattype"])
     session['file name']= "%s%s"%(qr_name,qr_format)
-    return redirect("/qrcodedownload")
+    
+    return render_template("index.html")
+@app.route("/qrcodedow")
+def loading():
+    T1=time.sleep(20)
+    return render_template("index.html",T1)
 
 @app.route("/qrcodedownload")
 def download():
     img =qrcode.make(str(session['url'])) 
     type(img)
-    path_to_download_folder = (os.path.join(Path.home(), "Downloads",session['file location']))
+    path_to_download_folder = (os.path.join(Path.home(), "Downloads",session['file name']))
     img.save(path_to_download_folder )
     session.clear()
     print("Download Complete")
     print(session)
-    return redirect("/")
+    return render_template("succesfulQRCreation.html")

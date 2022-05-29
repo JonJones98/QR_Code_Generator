@@ -4,35 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .page_setup{
-            display: flex;
-            justify-content: space-evenly;
-            align-items:center;
-            flex-direction:column;
-            width: max-content;
-            background-color: lightblue;
-            border: black solid 2px;
-            padding: 10px;
-        }
-        .page_position{
-            display: flex;
-            justify-content: center;
-            margin-top: 5%;
-        }
-        .outline{
-            border: black solid;
-        }
-    </style>
     <title>QR Code Generator</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <style>
+        h1{
+            color: #e85a4f;
+        }
+        
+    </style>
 </head>
 <body>
     <div class="page_position">
         <div class="page_setup">
             <h1>
-                <u>QR CODE GENERATOR</u> 
+                QR CODE GENERATOR
             </h1>
-            <form action="/qrcodevalidate" method="post" >
+            <form action="/qrcodevalidate" method="post" class="form">
                 <label for="url">URL: </label>
                 <input type="text" name="url" class="outline">
                 <label for="filename">Filename: </label>

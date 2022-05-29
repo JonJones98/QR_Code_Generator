@@ -6,23 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code download</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Document</title>
     <style>
         h1{
-            color: #3b945e
+            color: #e85a4f;
         }
-        
     </style>
 </head>
-<body>
-    <div class="page_position">
-        <div class="page_setup">
-            <h1>Complete!!!</h1>
+<body class="page">
+    <div class="loader">
+        <div class="ball_position">
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
         </div>
+    <div>
+        <span>Constucting QR Code...</span>
+    </div>
     </div>
     <script>    
         window.setTimeout(function(){
-          window.location.href = "/qrcodecreation";
+          // Move to a new location or you can do something else
+          window.location.href = "/qrcodedownload";
           }, 3000);
+   
     </script>
 </body>
 </html>
