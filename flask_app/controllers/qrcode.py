@@ -28,21 +28,34 @@ def home():
 @app.route("/qrcodevalidate", methods=["POST"])
 def validate():
     session['url']=request.form["url"]
-    session['filename']=request.form["filename"]
+    session['name']=request.form["filename"]
     session['formattype']=request.form["formattype"]
     qr_url=str(session['url'])
-    qr_name=str(session["filename"])
+    qr_name=str(session["name"])
     qr_format=str(session["formattype"])
     session['file name']= "%s%s"%(qr_name,qr_format)
-    
     return render_template("index.html")
-@app.route("/qrcodedow")
-def loading():
-    T1=time.sleep(20)
-    return render_template("index.html",T1)
-
+@app.route("/qrcodeproduction")
+def downloadpage():
+    img =qrcode.make(str(session['url'])) 
+    type(img)
+    file_name=session['file name']
+    img.save('flask_app/static/image/'+file_name)
+    return render_template("succesfulQRCreation.html")
 @app.route("/qrcodedownload")
 def download():
+    return render_template("download_page.html",QR_name=session['file name'])
+@app.route("/qrcodereset")
+def loading():
+    try:
+        os.remove('flask_app/static/image/'+session['file name'])
+    except:
+        print("folder empty")
+    session.clear
+    return redirect("/qrcodecreation")
+
+#@app.route("/qrcodedownload1")
+#def download1():
     img =qrcode.make(str(session['url'])) 
     type(img)
     path_to_download_folder = (os.path.join(Path.home(), "Downloads",session['file name']))
@@ -51,3 +64,4 @@ def download():
     print("Download Complete")
     print(session)
     return render_template("succesfulQRCreation.html")
+

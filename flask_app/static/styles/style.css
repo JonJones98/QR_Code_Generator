@@ -5,6 +5,15 @@
 .ball:nth-child(3){
     animation-delay: .32s;
 }
+.ball:nth-child(4){
+    animation-delay: .48s;
+}
+.ball:nth-child(5){
+    animation-delay: .64s;
+}
+.ball:nth-child(6){
+    animation-delay: .80s;
+}
 @keyframes bounce{
    from{
        transform: scaleX(1.25);
@@ -38,9 +47,6 @@ body{
     justify-content: space-evenly;
     flex-direction:column;
 }
-
-
-
 .page{
     display: flex;
     justify-content: center;

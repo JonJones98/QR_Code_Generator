@@ -6,23 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code download</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Document</title>
     <style>
         h1{
-            color: #3b945e
+            color: #e85a4f;
         }
-        
     </style>
 </head>
-<body>
-    <div class="page_position">
-        <div class="page_setup">
-            <h1>Complete!!!</h1>
-        </div>
-    </div>
-    <script>    
-        window.setTimeout(function(){
-          window.location.href = "/qrcodedownload";
-          }, 3000);
-    </script>
+<body class="page">
+    <h1>{{QR_name}}</h1>
+    <a href="static/image/{{QR_name}}" download="{{QR_name}}">
+        <Button>Download</Button>
+    </a>
+    <img src="static/image/{{QR_name}}" alt="{{QR_name}}" width="142" height="142">
+<a href="/qrcodereset">Return to homepage</a>
 </body>
 </html>
