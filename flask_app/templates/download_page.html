@@ -11,14 +11,30 @@
         h1{
             color: #e85a4f;
         }
+        .downloadbtn{
+            display: flex;
+            justify-content: center;
+            color: #3b945e;
+        }
+        .homepagebtn{
+            display: flex;
+            justify-content: center;
+            color: #e85a4f;
+        }
+        
     </style>
 </head>
-<body class="page">
-    <h1>{{QR_name}}</h1>
-    <a href="static/image/{{QR_name}}" download="{{QR_name}}">
-        <Button>Download</Button>
+<body class="page_position">
+    <div class="page_setup">
     </a>
-    <img src="static/image/{{QR_name}}" alt="{{QR_name}}" width="142" height="142">
-<a href="/qrcodereset">Return to homepage</a>
+    <h1>{{QR_name}}</h1>
+    <img src="static/image/{{QR_name}}" alt="{{QR_name}} preview image" width="142" height="142">
+    <div class="title">
+        <a href="static/image/{{QR_name}}" download="{{QR_name}}">
+            <Button class="downloadbtn">Download</Button>
+    <a href="/qrcodereset"><Button class="homepagebtn">Return to homepage</Button></a>
+    </div>
+    
+</div>
 </body>
 </html>

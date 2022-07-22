@@ -21,16 +21,24 @@
             <h1>
                 QR CODE GENERATOR
             </h1>
+            {% with messages = get_flashed_messages() %}     
+                {% if messages %}                            
+                    {% for message in messages %}            
+                        <p>{{message}}</p>                   
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <form action="/qrcodevalidate" method="post" class="form">
                 <label for="url">URL: </label>
-                <input type="text" name="url" class="outline">
+                <input type="text" name="url" class="outline" value="{{urlvalue}}">
                 <label for="filename">Filename: </label>
-                <input type="text" name="filename" class="outline">
+                <input type="text" name="filename" class="outline" value="{{filevalue}}">
                 <label for="formattype">Format: </label>
-                <select name="formattype" id="formattype" class="outline">
-                    {% for format in formats%}
-                        <option value={{format}}>{{format}}</option>
-                    {%endfor%}
+                <select name="formattype" id="formattype" class="outline" value="{{formatvalue}}">
+                        {% for format in formats%}
+                            <option value={{format}}>{{format}}
+                        {%endfor%}
+                    </optgroup>
                 </select>
                <button type="submit">Submit</button>
             </form>

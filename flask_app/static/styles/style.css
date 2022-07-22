@@ -33,6 +33,8 @@ body{
     width: max-content;
     color:#e98074;
     padding: 10px;
+    scale: 150%;
+    margin-top: 5%;
 }
 .page_position{
     display: flex;
@@ -46,11 +48,14 @@ body{
     display: flex;
     justify-content: space-evenly;
     flex-direction:column;
+    
 }
 .page{
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
+    scale: 150%;
+    margin-top: 5%;
 }
 .loader{
 width: 320px;
@@ -83,4 +88,20 @@ cursor: pointer;
 justify-content: center;
 animation: bounce .5s alternate infinite;
 }
-
+.ballcomp{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: linear-gradient(to top,#3b945e 0%, lightblue 75%,lavender 100%);
+    margin: 88px auto;
+    cursor: pointer;
+    justify-content: center;
+    animation: bounce .5s alternate infinite;
+    }
+.title{
+    display: flex;
+    margin-top: 5%;
+}
+.finish{
+    animation: bounce .5s alternate infinite;
+}
