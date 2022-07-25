@@ -8,6 +8,12 @@ from flask_app.models.qrcode import Validate
 
 @app.route("/")
 def index():
+    session['url']=""
+    session['name']=""
+    session['formattype']=""
+    return redirect("/qrcodecreation")
+@app.route("/error")
+def val_error():
     return redirect("/qrcodecreation")
 
 @app.route("/qrcodecreation")
@@ -22,7 +28,7 @@ def validate():
         session['name']=request.form["filename"]
         session['formattype']=request.form["formattype"]
         if not Validate.validate_info(request.form):
-            return redirect ("/")
+            return redirect ("/error")
     except:
         return redirect("/qrcodecreation")
     qr_name=str(session["name"])
@@ -46,7 +52,4 @@ def loading():
     except:
         print("folder empty")
     session.clear()
-    session['url']=""
-    session['name']=""
-    session['formattype']=""
-    return redirect("/qrcodecreation")
+    return redirect("/")
