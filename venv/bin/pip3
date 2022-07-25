@@ -1,4 +1,4 @@
-#!/Users/jonathanjones/Desktop/CODING/PYTHON/QR_Code_Generator/venv/bin/python
+#!/home/ubuntu/QR_Code_Generator/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
