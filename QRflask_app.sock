@@ -1,0 +1,6 @@
+[Unit]
+Description=gunicorn socket
+[Socket]
+ListenStream=/run/QRflask_app.sock
+[Install]
+WantedBy=sockets.target

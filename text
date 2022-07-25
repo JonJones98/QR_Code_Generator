@@ -6,6 +6,17 @@ User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/QR_Code_Generator
 Environment="PATH=/home/ubuntu/QR_Code_Generator/venv/bin"
-ExecStart=/home/ubuntu/QR_Code_Generator/venv/bin/gunicorn --workers 3 --bind unix:flask_app.sock -m 007 wsgi:application
+ExecStart=/home/ubuntu/QR_Code_Generator/venv/bin/gunicorn --workers 3 --bind unix:QRflask_app.sock -m 007 wsgi:application
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target:wq
+
+
+
+server {
+    listen 80;
+    server_name 54.174.114.186;
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/QR_Code_Generator/QRflask_app.sock;
+    }
+}
