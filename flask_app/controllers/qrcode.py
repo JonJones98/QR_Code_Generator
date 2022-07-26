@@ -8,9 +8,9 @@ from flask_app.models.qrcode import Validate
 
 @app.route("/")
 def index():
-    session['url']=" "
-    session['name']=" "
-    session['formattype']=" "
+    session['url']=""
+    session['name']=""
+    session['formattype']=""
     return redirect("/qrcodecreation")
 @app.route("/error")
 def val_error():
@@ -47,7 +47,7 @@ def downloadpage():
         img.save('flask_app/static/image/'+file_name)
         return render_template("succesfulQRCreation.html")
     except:
-        return redirect("/")
+        return redirect("/qrcodedownload")
 @app.route("/qrcodedownload")
 def download():
     return render_template("download_page.html",QR_name=session['file name'])
