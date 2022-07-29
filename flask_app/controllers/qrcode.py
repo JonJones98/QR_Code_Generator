@@ -4,6 +4,7 @@ from flask_app import app
 import qrcode
 import os
 from flask_app.models.qrcode import Validate
+import shutil
 
 
 @app.route("/")
@@ -18,6 +19,7 @@ def val_error():
 
 @app.route("/qrcodecreation")
 def home():
+    shutil.rmtree('flask_app/static/image')
     try:
         format_list=["Select Format",".tif",".tiff",".bmp",".jpg",".jpeg",".gif",".png",".eps",".raw",".cr2",".nef",".orf",".sr2",".pdf",".img"]
         return render_template("home_page.html",formats=format_list, urlvalue=session['url'],namevalue=session['name'],formatvalue=session['formattype'])
