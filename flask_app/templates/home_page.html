@@ -28,7 +28,7 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <form action="/qrcodevalidate" method="post" class="form">
+            <form action="/qr/constructing" method="post" class="form">
                 <label for="url">URL: </label>
                 <input type="text" name="url" class="outline" value="{{urlvalue}}">
                 <label for="filename">Filename: </label>
