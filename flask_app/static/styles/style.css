@@ -42,7 +42,7 @@ body{
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .outline{
     border: black solid;
@@ -90,16 +90,6 @@ margin: 88px auto;
 cursor: pointer;
 justify-content: center;
 animation: bounce .5s alternate infinite;
-}
-.block{
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: linear-gradient(to top,#e98074 0%, lightblue 75%,lavender 100%);
-    margin: 88px auto;
-    cursor: pointer;
-    justify-content: center;
-    animation: bounce .5s alternate infinite;
 }
 .ballcomp{
     width: 25px;
