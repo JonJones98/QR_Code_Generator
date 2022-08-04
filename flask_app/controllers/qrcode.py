@@ -4,6 +4,7 @@ from flask_app import app
 import qrcode
 import os
 from flask_app.models.qrcode import Validate
+import shutil
 
 
 @app.route("/")
@@ -11,13 +12,20 @@ def index():
     session['url']=""
     session['name']=""
     session['formattype']=""
-    return redirect("/qr/create")
+    return render_template("dashboard.html")
 @app.route("/error")
 def val_error():
     return redirect("/qr/create")
 
 @app.route("/qr/create")
 def home():
+    dir = 'flask_app/static/image_folder'
+    for files in os.listdir(dir):
+        path = os.path.join(dir, files)
+        try:
+            shutil.rmtree(path)
+        except OSError:
+            os.remove(path)
     try:
         format_list=["Select Format",".tif",".tiff",".bmp",".jpg",".jpeg",".gif",".png",".eps",".raw",".cr2",".nef",".orf",".sr2",".pdf",".img"]
         return render_template("home_page.html",formats=format_list, urlvalue=session['url'],namevalue=session['name'],formatvalue=session['formattype'])
@@ -44,17 +52,17 @@ def complete():
         img=qrcode.make(str(session['url'])) 
         type(img)
         file_name=session['file name']
-        img.save('flask_app/static/image/'+file_name)
+        img.save('flask_app/static/image_folder/'+file_name)
         return render_template("succesfulQRCreation.html")
     except:
-        return redirect("/qr/")
+        return render_template("errorQRCreation.html")
 @app.route("/qr/download")
 def download():
     return render_template("download_page.html",QR_name=session['file name'])
 @app.route("/qr/reset")
 def loading():
     try:
-        os.remove('flask_app/static/image/'+session['file name'])
+        os.remove('flask_app/static/image_folder/'+session['file name'])
     except:
         print("folder empty")
     session.clear()
