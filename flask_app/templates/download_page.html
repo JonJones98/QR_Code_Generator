@@ -21,10 +21,44 @@
             justify-content: center;
             color: #e85a4f;
         }
-        
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+
+            ul.topnav li {float: left;}
+
+            ul.topnav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+            ul.topnav li a.active {background-color: #e85a4f;}
+
+            ul.topnav li.right {float: right;}
+
+            @media screen and (max-width: 600px) {
+            ul.topnav li.right, 
+            ul.topnav li {float: none;}
+            }
     </style>
 </head>
-<body class="page_position">
+<body>
+    
+    <ul class="topnav">
+        <li><a href="/">Home</a></li>
+        <li><a class="active" href="http://127.0.0.1:5000/qr/create">QR Code Generator</a></li>
+        <li class="right"><a href="#about">Login/User</a></li>
+      </ul>
+      <div class="page_position">
     <div class="page_setup">
         <h1>{{QR_name}}</h1>
         <img src="/static/image_folder/{{QR_name}}" alt="{{QR_name}} preview image folder" width="142" height="142">
@@ -34,6 +68,7 @@
         <a href="/qr/reset"><Button class="homepagebtn">Return to homepage</Button></a>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

@@ -12,7 +12,7 @@ def index():
     session['url']=""
     session['name']=""
     session['formattype']=""
-    return redirect("/qr/create")
+    return render_template("dashboard.html")
 @app.route("/error")
 def val_error():
     return redirect("/qr/create")
