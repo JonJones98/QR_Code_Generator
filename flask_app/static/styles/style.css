@@ -99,10 +99,23 @@ animation: bounce .5s alternate infinite;
     justify-content: center;
     animation: bounce .5s alternate infinite;
     }
+.ballerror{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: linear-gradient(to top,red 0%, gray 75%,purple 100%);
+    margin: 88px auto;
+    cursor: pointer;
+    justify-content: center;
+    animation: animate__slideInRight .5s alternate infinite;
+    }
 .title{
     display: flex;
     margin-top: 5%;
 }
 .finish{
-    animation: bounce .5s alternate infinite;
+    animation: ease-out .5s alternate infinite;
+}
+.error{
+    animation: step-end .5s alternate infinite;
 }

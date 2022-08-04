@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code download</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <style>
+        h1{
+            color: red
+        }
+        
+    </style>
+</head>
+<body class="page">
+        <div class="ball_position">
+            <div class="ballerror"></div>
+            <div class="ballerror"></div>
+            <div class="ballerror"></div>  
+        </div>
+    </div>
+        <h1 class="error">Error!</h1>
+        <a href="/" >Return to Home page</a>
+    </div>
+    <script>    
+        window.setTimeout(function(){
+		window.location.href = "/";
+          }, 30000);
+    </script>
+</body>
+</html>

@@ -26,15 +26,14 @@
 </head>
 <body class="page_position">
     <div class="page_setup">
-    </a>
-    <h1>{{QR_name}}</h1>
-    <img src="static/image/{{QR_name}}" alt="{{QR_name}} preview image" width="142" height="142">
-    <div class="title">
-        <a href="static/image/{{QR_name}}" download="{{QR_name}}">
-            <Button class="downloadbtn">Download</Button>
-    <a href="/qr/reset"><Button class="homepagebtn">Return to homepage</Button></a>
+        <h1>{{QR_name}}</h1>
+        <img src="/static/image_folder/{{QR_name}}" alt="{{QR_name}} preview image folder" width="142" height="142">
+        <div class="title">
+            <a href="flask_app/static/image_folder/{{QR_name}}" download="{{QR_name}}">
+                <Button class="downloadbtn">Download</Button>
+        <a href="/qr/reset"><Button class="homepagebtn">Return to homepage</Button></a>
+        </div>
     </div>
-    
 </div>
 </body>
 </html>
