@@ -7,8 +7,9 @@
     <title>QR Code Generator</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     <style>
-        h1{
+        h2{
             color: #e85a4f;
+            flex-wrap: wrap;
         }
         ul.topnav {
             list-style-type: none;
@@ -49,9 +50,9 @@
       </ul>
     <div class="page_position">
         <div class="page_setup">
-            <h1>
+            <h2>
                 QR CODE GENERATOR
-            </h1>
+            </h2>
             {% with messages = get_flashed_messages() %}     
                 {% if messages %}                            
                     {% for message in messages %}            
