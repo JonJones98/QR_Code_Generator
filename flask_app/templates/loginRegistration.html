@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <style>
+        .LR_page{
+          display: flex;
+          margin-top: 50px;
+          flex-direction: row;
+          justify-content: space-evenly;
+          scale: 120%;
+          color:#e98074;
+        }
+        .LRform{
+          display: flex;
+          flex-direction: column;
+          width: fit-content;
+          scale: 120%;
+        }
+        h2{
+            color: #e85a4f;
+            margin-bottom: 30px;
+        }
+        ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #e85a4f;}
+
+ul.topnav li.right {float: right;}
+@media screen and (min-width: 1000px){
+.LR_page{justify-content: center;}
+.LRform{margin-inline: 50px;}
+H2{justify-content: center;margin-inline: 50px;}
+}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+  .LR_page{flex-direction: column;align-items: center;margin-left: 40%;width:fit-content;}
+}
+    </style>
+</head>
+<body>
+    <ul class="topnav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/qr/create">QR Code Generator</a></li>
+        <li class="right"><a class="active" href="/userportal/loginresitraion">Login/User</a></li>
+      </ul>
+    <div class="LR_page">
+      {% with messages = get_flashed_messages() %}     
+                {% if messages %}                            
+                    {% for message in messages %}            
+                        <p>{{message}}</p>                   
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+          <div>
+            <h2>Login</h2>
+            <form action="/finduser" method="POST"class="LRform">
+              <label for="username">Username:</label>
+              <input type="text" name="username"class="outline" >
+              <label for="password">Password:</label>
+              <input type="password" name="password"class="outline" >
+              <input type="submit" value="Login">
+            </form>
+          </div>
+          {% with messages = get_flashed_messages() %}     
+                {% if messages %}                            
+                    {% for message in messages %}            
+                        <p>{{message}}</p>                   
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+          <div>
+            <h2>Registration</h2>
+            <form action="/createuser" method="POST"class="LRform">
+              <label for="firstName">First name:</label>
+              <input type="text" name="firstName"class="outline" >
+              <label for="lastName">Last name:</label>
+              <input type="text" name="lastName"class="outline" >
+              <label for="username">Username:</label>
+              <input type="text" name="username"class="outline" >
+              <label for="password">Password:</label>
+              <input type="password" name="password"class="outline" >
+              <label for="password">Confirm Password:</label>
+              <input type="password" name="password"class="outline" >
+              <input type="submit" value="Create account">
+            </form>
+          </div>
+    </div>
+</body>
+</html>

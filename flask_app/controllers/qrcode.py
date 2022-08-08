@@ -17,6 +17,15 @@ def index():
 def val_error():
     return redirect("/qr/create")
 
+@app.route("/createuser", methods=["POST"])
+def val_2():
+    return redirect("/userportal/loginresitraion")
+@app.route("/finduser", methods=["POST"])
+def val_1():
+    return redirect("/userportal/loginresitraion")
+@app.route("/userportal/loginresitraion")
+def loginRegistration():
+    return render_template("loginRegistration.html")
 @app.route("/qr/create")
 def home():
     dir = 'flask_app/static/image_folder'

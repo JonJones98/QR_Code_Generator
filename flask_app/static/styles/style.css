@@ -60,6 +60,9 @@ body{
     scale: 150%;
     margin-top: 5%;
 }
+.LR_page{
+    display: inline-block;
+}
 .loader{
 width: 320px;
 height: 25px;
