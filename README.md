@@ -147,7 +147,7 @@ QR_Code_Generator/
 The application uses Flask sessions to maintain state between requests. The secret key is configured in `flask_app/__init__.py`:
 
 ```python
-app.secret_key = "marksman12"  # Change this in production!
+app.secret_key = "*****"  # Change this in production!
 ```
 
 **⚠️ Important**: Change the secret key to a secure random value in production environments.
